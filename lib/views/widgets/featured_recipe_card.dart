@@ -15,6 +15,7 @@ class FeaturedRecipeCard extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => RecipeDetailPage(data: data)));
       },
+      // Card Wrapper
       child: Container(
         width: 180,
         height: 220,
@@ -28,6 +29,7 @@ class FeaturedRecipeCard extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        // Recipe Card Info
         child: ClipRect(
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
@@ -41,12 +43,14 @@ class FeaturedRecipeCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Recipe Title
                   Text(
                     data.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(color: Colors.white, fontSize: 14, height: 150 / 100, fontWeight: FontWeight.w600, fontFamily: 'inter'),
                   ),
+                  // Recipe Calories and Time
                   Container(
                     margin: EdgeInsets.only(top: 8),
                     child: Row(
