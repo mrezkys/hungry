@@ -30,7 +30,7 @@ class RecipeTile extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.blueGrey,
-                image: DecorationImage(image: AssetImage(data.photo)),
+                image: DecorationImage(image: AssetImage(data.photo), fit: BoxFit.cover),
               ),
             ),
             // Recipe Info
