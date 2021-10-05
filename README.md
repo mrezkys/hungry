@@ -34,3 +34,50 @@ Hungry is a Free Flutter Recipe App Starter Template that can help you develop a
 - Step Tile Widget
 - User Info Tile Widget
 - Ingridient Tile Widget
+
+
+## Installation
+
+**Step 1:**
+
+Download or clone this repo by using the link below:
+
+```
+https://github.com/mrezkys/hungry.git
+```
+
+**Step 2:**
+
+Go to project root and execute the following command in console to get the required dependencies: 
+
+```
+flutter pub get 
+```
+
+**Step 3:**
+
+You can run this project by using this command
+
+```
+flutter run
+```
+
+
+## About the Author
+
+Hungry is Developed by [mrezkys](https://www.facebook.com/mrezkys12)
+The User Interface are designed by [mrezkys](https://dribbble.com/mrezkys)
+
+## Thanks To
+Iconly, icons that i used on this project, created by [Piqo Design](https://www.figma.com/@piqodesign)
+
+## License
+Hungry is under MIT License.
+
+## Donate
+You can support me at [trakteer](https://trakteer.id/mrezkys) <br>
+<a href="https://trakteer.id/mrezkys" target="_blank"><img id="wse-buttons-preview" src="https://cdn.trakteer.id/images/embed/trbtn-red-5.png" height="45" style="border: 0px; height: 45px;" alt="Trakteer Saya"></a>
+
+## Announcement
+
+Now Hungry already relased v1.0.0
