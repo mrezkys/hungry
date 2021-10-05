@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hungry/models/core/recipe.dart';
 import 'package:hungry/models/helper/recipe_helper.dart';
+import 'package:hungry/views/screens/delicious_today_page.dart';
+import 'package:hungry/views/screens/newly_posted_page.dart';
 import 'package:hungry/views/screens/profile_page.dart';
 import 'package:hungry/views/screens/search_page.dart';
 import 'package:hungry/views/utils/AppColor.dart';
@@ -61,7 +63,9 @@ class HomePage extends StatelessWidget {
                             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'inter'),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeliciousTodayPage()));
+                            },
                             child: Text('see all'),
                             style: TextButton.styleFrom(primary: Colors.white, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
                           ),
@@ -140,11 +144,13 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Delicious Today',
+                      'Newly Posted',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'inter'),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewlyPostedPage()));
+                      },
                       child: Text('see all'),
                       style: TextButton.styleFrom(primary: Colors.black, textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
                     ),
@@ -153,7 +159,7 @@ class HomePage extends StatelessWidget {
                 // Content
                 ListView.separated(
                   shrinkWrap: true,
-                  itemCount: newlyPostedRecipe.length,
+                  itemCount: 3 ?? newlyPostedRecipe.length,
                   physics: NeverScrollableScrollPhysics(),
                   separatorBuilder: (context, index) {
                     return SizedBox(height: 16);
