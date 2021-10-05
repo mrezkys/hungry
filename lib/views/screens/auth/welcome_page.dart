@@ -33,7 +33,7 @@ class WelcomePage extends StatelessWidget {
                         padding: EdgeInsets.only(bottom: 16),
                         child: Text('Hungry?', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w700, fontSize: 32, color: Colors.white)),
                       ),
-                      Text('Green Leafy Vegetable Dish.', style: TextStyle(color: Colors.white)),
+                      Text("Help you when you're hungry", style: TextStyle(color: Colors.white)),
                     ],
                   ),
                   Column(
