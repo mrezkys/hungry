@@ -11,7 +11,11 @@ class CategoryCard extends StatelessWidget {
     return Container(
       width: ((MediaQuery.of(context).size.width - 16 - 16) / 2) - 8, // 16  = horizontal padding , /2 = because there is 2 box horizontal, -8 = distance between box, 8*2 = 16
       height: 60,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), image: DecorationImage(image: image, fit: BoxFit.cover)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        // Image
+        image: DecorationImage(image: image, fit: BoxFit.cover),
+      ),
       child: Container(
         width: 164,
         height: 60,

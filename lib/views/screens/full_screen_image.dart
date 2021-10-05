@@ -23,8 +23,10 @@ class FullScreenImage extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         alignment: Alignment.center,
+        // Image Wrapper
         child: Container(
           width: MediaQuery.of(context).size.width,
+          // Image Widget
           child: image,
         ),
       ),

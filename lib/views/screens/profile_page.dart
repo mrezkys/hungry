@@ -34,6 +34,7 @@ class ProfilePage extends StatelessWidget {
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         children: [
+          // Section 1 - Profile Picture Wrapper
           Container(
             color: AppColor.primary,
             padding: EdgeInsets.symmetric(vertical: 24),
@@ -68,6 +69,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
           ),
+          // Section 2 - User Info Wrapper
           Container(
             margin: EdgeInsets.only(top: 24),
             width: MediaQuery.of(context).size.width,

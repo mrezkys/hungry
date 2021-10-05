@@ -6,6 +6,7 @@ class SearchFilterModal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wrap(
       children: [
+        // Section 1 - Header
         Container(
           width: MediaQuery.of(context).size.width,
           height: 60,
@@ -47,6 +48,7 @@ class SearchFilterModal extends StatelessWidget {
             ],
           ),
         ),
+        // Sort By Option
         Container(
           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[300]))),
           child: ListTileTheme(
@@ -59,6 +61,7 @@ class SearchFilterModal extends StatelessWidget {
             ),
           ),
         ),
+        // Sort By Option
         Container(
           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[300]))),
           child: ListTileTheme(
@@ -71,6 +74,7 @@ class SearchFilterModal extends StatelessWidget {
             ),
           ),
         ),
+        // Sort By Option
         Container(
           decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[300]))),
           child: ListTileTheme(
