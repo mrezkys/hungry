@@ -5,6 +5,9 @@
 Hungry is a Free Flutter Recipe App Starter Template that can help you develop a Recipe application much faster. You just need to add some adjustment to the frontend and you can create your own backend.
 
 ## App Screenshot
+<img src="https://github.com/mrezkys/hungry/blob/main/demo/banner.jpg" width="auto" height="auto" >
+<img src="https://github.com/mrezkys/hungry/blob/main/demo/shot.jpg" width="auto" height="auto" >
+<img src="https://github.com/mrezkys/hungry/blob/main/demo/details.jpg" width="auto" height="auto" >
 
 ## Whats inside
 - Welcome Page
