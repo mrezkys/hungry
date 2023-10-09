@@ -7,13 +7,14 @@ import 'package:hungry/views/screens/recipe_detail_page.dart';
 
 class FeaturedRecipeCard extends StatelessWidget {
   final Recipe data;
-  FeaturedRecipeCard({@required this.data});
+  FeaturedRecipeCard({required this.data});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => RecipeDetailPage(data: data)));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => RecipeDetailPage(data: data)));
       },
       // Card Wrapper
       child: Container(
@@ -48,7 +49,12 @@ class FeaturedRecipeCard extends StatelessWidget {
                     data.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.white, fontSize: 14, height: 150 / 100, fontWeight: FontWeight.w600, fontFamily: 'inter'),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        height: 150 / 100,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'inter'),
                   ),
                   // Recipe Calories and Time
                   Container(

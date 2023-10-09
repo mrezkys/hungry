@@ -11,7 +11,8 @@ class SearchFilterModal extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 60,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20)),
             color: AppColor.primaryExtraSoft,
           ),
           child: Row(
@@ -31,7 +32,10 @@ class SearchFilterModal extends StatelessWidget {
               ),
               Text(
                 'Sort by',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, fontFamily: 'inter'),
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'inter'),
               ),
               GestureDetector(
                 onTap: () {
@@ -50,39 +54,51 @@ class SearchFilterModal extends StatelessWidget {
         ),
         // Sort By Option
         Container(
-          decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[300]))),
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(
+                      color: const Color.fromARGB(255, 224, 224, 224)))),
           child: ListTileTheme(
             selectedColor: AppColor.primary,
             textColor: Colors.grey,
             child: ListTile(
               selected: true,
-              title: Text('Newest', style: TextStyle(fontWeight: FontWeight.w600)),
+              title:
+                  Text('Newest', style: TextStyle(fontWeight: FontWeight.w600)),
               contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             ),
           ),
         ),
         // Sort By Option
         Container(
-          decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[300]))),
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(
+                      color: const Color.fromARGB(255, 220, 220, 220)))),
           child: ListTileTheme(
             selectedColor: AppColor.primary,
             textColor: Colors.grey,
             child: ListTile(
               selected: false,
-              title: Text('Oldest', style: TextStyle(fontWeight: FontWeight.w600)),
+              title:
+                  Text('Oldest', style: TextStyle(fontWeight: FontWeight.w600)),
               contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             ),
           ),
         ),
         // Sort By Option
         Container(
-          decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey[300]))),
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(
+                      color: const Color.fromARGB(255, 224, 224, 224)))),
           child: ListTileTheme(
             selectedColor: AppColor.primary,
             textColor: Colors.grey,
             child: ListTile(
               selected: false,
-              title: Text('Popular', style: TextStyle(fontWeight: FontWeight.w600)),
+              title: Text('Popular',
+                  style: TextStyle(fontWeight: FontWeight.w600)),
               contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             ),
           ),

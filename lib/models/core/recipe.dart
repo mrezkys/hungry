@@ -5,13 +5,21 @@ class Recipe {
   String time;
   String description;
 
-  List<Ingridient> ingridients;
-  List<TutorialStep> tutorial;
-  List<Review> reviews;
+  List<Ingridient>? ingridients;
+  List<TutorialStep>? tutorial;
+  List<Review>? reviews;
 
-  Recipe({this.title, this.photo, this.calories, this.time, this.description, this.ingridients, this.tutorial, this.reviews});
+  Recipe(
+      {required this.title,
+      required this.photo,
+      required this.calories,
+      required this.time,
+      required this.description,
+      this.ingridients,
+      this.tutorial,
+      this.reviews});
 
-  factory Recipe.fromJson(Map<String, Object> json) {
+  factory Recipe.fromJson(Map json) {
     return Recipe(
       title: json['title'],
       photo: json['photo'],
@@ -24,32 +32,35 @@ class Recipe {
 
 class TutorialStep {
   String step;
-  String description;
-  TutorialStep({this.step, this.description});
+  String? description;
+  TutorialStep({required this.step, this.description});
 
-  Map<String, Object> toMap() {
+  Map<String, dynamic> toMap() {
     return {
       'step': step,
-      'description': description,
+      'description': description ?? '',
     };
   }
 
-  factory TutorialStep.fromJson(Map<String, Object> json) => TutorialStep(
+  factory TutorialStep.fromJson(Map json) => TutorialStep(
         step: json['step'],
         description: json['description'],
       );
 
-  static List<TutorialStep> toList(List<Map<String, Object>> json) {
-    return List.from(json).map((e) => TutorialStep(step: e['step'], description: e['description'])).toList();
+  static List<TutorialStep> toList(List<Map<String, dynamic>> json) {
+    return List.from(json)
+        .map(
+            (e) => TutorialStep(step: e['step'], description: e['description']))
+        .toList();
   }
 }
 
 class Review {
   String username;
   String review;
-  Review({this.username, this.review});
+  Review({required this.username, required this.review});
 
-  factory Review.fromJson(Map<String, Object> json) => Review(
+  factory Review.fromJson(Map json) => Review(
         review: json['review'],
         username: json['username'],
       );
@@ -61,8 +72,10 @@ class Review {
     };
   }
 
-  static List<Review> toList(List<Map<String, Object>> json) {
-    return List.from(json).map((e) => Review(username: e['username'], review: e['review'])).toList();
+  static List<Review> toList(List<Map<String, dynamic>> json) {
+    return List.from(json)
+        .map((e) => Review(username: e['username'], review: e['review']))
+        .toList();
   }
 }
 
@@ -70,8 +83,8 @@ class Ingridient {
   String name;
   String size;
 
-  Ingridient({this.name, this.size});
-  factory Ingridient.fromJson(Map<String, Object> json) => Ingridient(
+  Ingridient({required this.name, required this.size});
+  factory Ingridient.fromJson(Map<String, dynamic> json) => Ingridient(
         name: json['name'],
         size: json['size'],
       );
@@ -84,6 +97,8 @@ class Ingridient {
   }
 
   static List<Ingridient> toList(List<Map<String, Object>> json) {
-    return List.from(json).map((e) => Ingridient(name: e['name'], size: e['size'])).toList();
+    return List.from(json)
+        .map((e) => Ingridient(name: e['name'], size: e['size']))
+        .toList();
   }
 }
