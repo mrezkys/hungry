@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hungry/views/utils/AppColor.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -7,7 +8,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ImageProvider profilePhoto;
   final Function profilePhotoOnPressed;
 
-  CustomAppBar({@required this.title, @required this.showProfilePhoto, this.profilePhoto, this.profilePhotoOnPressed});
+  CustomAppBar(
+      {required this.title,
+      required this.showProfilePhoto,
+      required this.profilePhoto,
+      required this.profilePhotoOnPressed});
 
   @override
   Size get preferredSize => Size.fromHeight(60);
@@ -15,7 +20,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      brightness: Brightness.dark,
       backgroundColor: AppColor.primary,
       title: title,
       elevation: 0,
@@ -26,20 +30,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             margin: EdgeInsets.only(right: 16),
             alignment: Alignment.center,
             child: IconButton(
-              onPressed: profilePhotoOnPressed,
+              onPressed: () => profilePhotoOnPressed(),
               icon: Container(
                 width: 32,
                 height: 32,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   color: Colors.white,
-                  image: DecorationImage(image: profilePhoto, fit: BoxFit.cover),
+                  image:
+                      DecorationImage(image: profilePhoto, fit: BoxFit.cover),
                 ),
               ),
             ),
           ),
         ),
       ],
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 }

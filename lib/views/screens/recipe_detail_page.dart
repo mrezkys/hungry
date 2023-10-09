@@ -10,15 +10,16 @@ import 'package:hungry/views/widgets/step_tile.dart';
 
 class RecipeDetailPage extends StatefulWidget {
   final Recipe data;
-  RecipeDetailPage({@required this.data});
+  RecipeDetailPage({required this.data});
 
   @override
   _RecipeDetailPageState createState() => _RecipeDetailPageState();
 }
 
-class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProviderStateMixin {
-  TabController _tabController;
-  ScrollController _scrollController;
+class _RecipeDetailPageState extends State<RecipeDetailPage>
+    with TickerProviderStateMixin {
+  late TabController _tabController;
+  late ScrollController _scrollController;
 
   @override
   void initState() {
@@ -71,10 +72,13 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
           duration: Duration(milliseconds: 200),
           child: AppBar(
             backgroundColor: Colors.transparent,
-            brightness: Brightness.dark,
             elevation: 0,
             centerTitle: true,
-            title: Text('Search Recipe', style: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w400, fontSize: 16)),
+            title: Text('Search Recipe',
+                style: TextStyle(
+                    fontFamily: 'inter',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16)),
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios, color: Colors.white),
               onPressed: () {
@@ -82,8 +86,12 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
               },
             ),
             actions: [
-              IconButton(onPressed: () {}, icon: SvgPicture.asset('assets/icons/bookmark.svg', color: Colors.white)),
+              IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset('assets/icons/bookmark.svg',
+                      color: Colors.white)),
             ],
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
           ),
         ),
       ),
@@ -154,12 +162,17 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
           // Section 1 - Recipe Image
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => FullScreenImage(image: Image.asset(widget.data.photo, fit: BoxFit.cover))));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => FullScreenImage(
+                      image:
+                          Image.asset(widget.data.photo, fit: BoxFit.cover))));
             },
             child: Container(
               height: 280,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(image: DecorationImage(image: AssetImage(widget.data.photo), fit: BoxFit.cover)),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(widget.data.photo), fit: BoxFit.cover)),
               child: Container(
                 decoration: BoxDecoration(gradient: AppColor.linearBlackTop),
                 height: 280,
@@ -208,13 +221,20 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
                   margin: EdgeInsets.only(bottom: 12, top: 16),
                   child: Text(
                     widget.data.title,
-                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600, fontFamily: 'inter'),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'inter'),
                   ),
                 ),
                 // Recipe Description
                 Text(
                   widget.data.description,
-                  style: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 14, height: 150 / 100),
+                  style: TextStyle(
+                      color: Colors.white.withOpacity(0.9),
+                      fontSize: 14,
+                      height: 150 / 100),
                 ),
               ],
             ),
@@ -233,7 +253,8 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
               },
               labelColor: Colors.black,
               unselectedLabelColor: Colors.black.withOpacity(0.6),
-              labelStyle: TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w500),
+              labelStyle:
+                  TextStyle(fontFamily: 'inter', fontWeight: FontWeight.w500),
               indicatorColor: Colors.black,
               tabs: [
                 Tab(
@@ -253,39 +274,42 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> with TickerProvider
             index: _tabController.index,
             children: [
               // Ingridients
-              ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                itemCount: widget.data.ingridients.length,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return IngridientTile(
-                    data: widget.data.ingridients[index],
-                  );
-                },
-              ),
+              if (widget.data.ingridients != null)
+                ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  itemCount: widget.data.ingridients!.length,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return IngridientTile(
+                      data: widget.data.ingridients![index],
+                    );
+                  },
+                ),
               // Tutorials
-              ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                itemCount: widget.data.tutorial.length,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return StepTile(
-                    data: widget.data.tutorial[index],
-                  );
-                },
-              ),
+              if (widget.data.tutorial != null)
+                ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  itemCount: widget.data.tutorial!.length,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return StepTile(
+                      data: widget.data.tutorial![index],
+                    );
+                  },
+                ),
               // Reviews
-              ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                itemCount: widget.data.reviews.length,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return ReviewTile(data: widget.data.reviews[index]);
-                },
-              )
+              if (widget.data.reviews != null)
+                ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  itemCount: widget.data.reviews!.length,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return ReviewTile(data: widget.data.reviews![index]);
+                  },
+                )
             ],
           ),
         ],

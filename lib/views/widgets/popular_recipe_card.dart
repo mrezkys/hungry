@@ -9,12 +9,13 @@ import 'package:hungry/views/utils/AppColor.dart';
 class PopularRecipeCard extends StatelessWidget {
   final Recipe data;
 
-  PopularRecipeCard({@required this.data});
+  PopularRecipeCard({required this.data});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => RecipeDetailPage(data: data)));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => RecipeDetailPage(data: data)));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -22,7 +23,10 @@ class PopularRecipeCard extends StatelessWidget {
         alignment: Alignment.bottomRight,
         padding: EdgeInsets.all(15),
         // Image
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), image: DecorationImage(image: AssetImage(data.photo), fit: BoxFit.cover)),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+                image: AssetImage(data.photo), fit: BoxFit.cover)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,10 +37,15 @@ class PopularRecipeCard extends StatelessWidget {
               width: 95,
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: AppColor.primary),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: AppColor.primary),
               child: Text(
                 'Popular Now !!',
-                style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500),
               ),
             ),
             // Recipe Info Wrapper
@@ -59,7 +68,12 @@ class PopularRecipeCard extends StatelessWidget {
                         data.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(color: Colors.white, fontSize: 14, height: 150 / 100, fontWeight: FontWeight.w600, fontFamily: 'inter'),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            height: 150 / 100,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'inter'),
                       ),
                       // Recipe Calories and Time
                       Container(
@@ -76,7 +90,8 @@ class PopularRecipeCard extends StatelessWidget {
                               margin: EdgeInsets.only(left: 5),
                               child: Text(
                                 data.calories,
-                                style: TextStyle(color: Colors.white, fontSize: 10),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 10),
                               ),
                             ),
                             SizedBox(width: 10),
@@ -85,7 +100,8 @@ class PopularRecipeCard extends StatelessWidget {
                               margin: EdgeInsets.only(left: 5),
                               child: Text(
                                 data.time,
-                                style: TextStyle(color: Colors.white, fontSize: 10),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 10),
                               ),
                             ),
                           ],

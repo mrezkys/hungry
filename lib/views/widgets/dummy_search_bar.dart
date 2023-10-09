@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hungry/views/utils/AppColor.dart';
 
 class DummySearchBar extends StatelessWidget {
-  final Function routeTo;
-  DummySearchBar({@required this.routeTo});
+  final void Function() routeTo;
+  DummySearchBar({required this.routeTo});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +23,13 @@ class DummySearchBar extends StatelessWidget {
                 height: 50,
                 margin: EdgeInsets.only(right: 15),
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColor.primarySoft),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: AppColor.primarySoft),
                 child: Row(
                   children: [
-                    SvgPicture.asset('assets/icons/search.svg', color: Colors.white, height: 18, width: 18),
+                    SvgPicture.asset('assets/icons/search.svg',
+                        color: Colors.white, height: 18, width: 18),
                     Container(
                       margin: EdgeInsets.only(left: 10),
                       child: Text(
